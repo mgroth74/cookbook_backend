@@ -6,6 +6,11 @@ router.get("/", (req, res) => {
    Recipe.find({}).then(recipe => res.json(recipe));
 });
 
+router.get("/name/:name", (req, res) => {
+  const name=req.params.name
+  Recipe.find({name}).then(recipe => res.json(recipe));
+});
+
 router.get("/type/:type", (req, res) => {
   const type=req.params.type
   Recipe.find({type}).then(recipe => res.json(recipe));
